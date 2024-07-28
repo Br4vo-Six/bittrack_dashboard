@@ -4,13 +4,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import React, { ReactNode } from "react";
 import Image from "next/image";
-import OverviewIcon from "../../public/icons/Squares.svg";
-import AnalyticsIcon from "../../public/icons/Watch List Icon.svg";
-import PerformanceIcon from "../../public/icons/Performance Icon.svg";
-import SettingsIcon from "../../public/icons/Settings.svg";
-import LogOutIcon from "../../public/icons/LogOut Icon.svg";
-import BitTrackLogo from "../../public/icons/BitTrack Logo.png";
-import ProfileIcon from "../../public/icons/Profile User.svg";
+import OverviewIcon from "@icons/Squares.svg";
+import AnalyticsIcon from "@icons/Watch List Icon.svg";
+import PerformanceIcon from "@icons/Performance Icon.svg";
+import SettingsIcon from "@icons/Settings.svg";
+import LogOutIcon from "@icons/LogOut Icon.svg";
+import BitTrackLogo from "@icons/BitTrack Logo.png";
+import ProfileIcon from "@icons/Profile User.svg";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -76,7 +76,7 @@ export default function RootLayout({
                   <Link
                     href="/watchlist"
                     className={`${
-                      pathname === "/watchlist"
+                      pathname.includes("watchlist")
                         ? "text-[#0DA6C2]"
                         : "text-white"
                     } text-[#0DA6C2] flex items-center p-2 text-base font-medium  rounded-lg hover:bg-gray-700 hover:text-white`}
