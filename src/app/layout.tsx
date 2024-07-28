@@ -69,7 +69,7 @@ export default function RootLayout({
                       width={24}
                       height={24}
                     />
-                    <span className="ml-3">Overview</span>
+                    <span className="ml-3 text-xl font-bold">Overview</span>
                   </Link>
                 </li>
                 <li>
@@ -87,7 +87,7 @@ export default function RootLayout({
                       width={24}
                       height={24}
                     />
-                    <span className="ml-3">Watch List</span>
+                    <span className="ml-3 text-xl font-bold">Watch List</span>
                   </Link>
                 </li>
                 <li>
@@ -105,7 +105,7 @@ export default function RootLayout({
                       width={24}
                       height={24}
                     />
-                    <span className="ml-3">Performance</span>
+                    <span className="ml-3 text-xl font-bold">Performance</span>
                   </a>
                 </li>
                 <li>
@@ -121,7 +121,7 @@ export default function RootLayout({
                       width={24}
                       height={24}
                     />
-                    <span className="ml-3">Settings</span>
+                    <span className="ml-3 text-xl font-bold">Settings</span>
                   </a>
                 </li>
               </ul>
