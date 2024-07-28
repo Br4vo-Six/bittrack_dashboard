@@ -61,7 +61,7 @@ export default function RootLayout({
                     href="/"
                     className={`${
                       pathname === "/" ? "text-[#0DA6C2]" : "text-white"
-                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
+                    } flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={OverviewIcon}
@@ -79,7 +79,7 @@ export default function RootLayout({
                       pathname === "/watchlist"
                         ? "text-[#0DA6C2]"
                         : "text-white"
-                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
+                    } text-[#0DA6C2] flex items-center p-2 text-base font-medium  rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={AnalyticsIcon}
@@ -97,7 +97,7 @@ export default function RootLayout({
                       pathname === "/performance"
                         ? "text-[#0DA6C2]"
                         : "text-white"
-                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
+                    } flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={PerformanceIcon}
@@ -113,7 +113,7 @@ export default function RootLayout({
                     href="/settings"
                     className={`${
                       pathname === "/settings" ? "text-[#0DA6C2]" : "text-white"
-                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
+                    } flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={SettingsIcon}
