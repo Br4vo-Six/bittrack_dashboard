@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React, { ReactNode } from "react";
@@ -11,18 +12,17 @@ import LogOutIcon from "../../public/icons/LogOut Icon.svg";
 import BitTrackLogo from "../../public/icons/BitTrack Logo.png";
 import ProfileIcon from "../../public/icons/Profile User.svg";
 
-const inter = Inter({ subsets: ["latin"] });
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "BitTrack",
-  description: "Track Illicit Crypto Transactions",
-};
+const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -57,10 +57,11 @@ export default function RootLayout({
             <nav className="flex-grow mt-8">
               <ul className="space-y-4">
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-medium rounded-lg hover:bg-gray-700 hover:text-white"
-                    style={{ color: "#0DA6C2" }}
+                  <Link
+                    href="/"
+                    className={`${
+                      pathname === "/" ? "text-[#0DA6C2]" : "text-white"
+                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={OverviewIcon}
@@ -69,12 +70,16 @@ export default function RootLayout({
                       height={24}
                     />
                     <span className="ml-3">Overview</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white"
+                  <Link
+                    href="/watchlist"
+                    className={`${
+                      pathname === "/watchlist"
+                        ? "text-[#0DA6C2]"
+                        : "text-white"
+                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={AnalyticsIcon}
@@ -83,12 +88,16 @@ export default function RootLayout({
                       height={24}
                     />
                     <span className="ml-3">Watch List</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white"
+                    href="/performance"
+                    className={`${
+                      pathname === "/performance"
+                        ? "text-[#0DA6C2]"
+                        : "text-white"
+                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={PerformanceIcon}
@@ -101,8 +110,10 @@ export default function RootLayout({
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white"
+                    href="/settings"
+                    className={`${
+                      pathname === "/settings" ? "text-[#0DA6C2]" : "text-white"
+                    } flex items-center p-2 text-base font-medium text-white rounded-lg hover:bg-gray-700 hover:text-white`}
                   >
                     <Image
                       src={SettingsIcon}

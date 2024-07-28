@@ -1,5 +1,4 @@
 import { useSearchParams } from "next/navigation";
-import Layout from "../../components/Layout";
 
 const WatchList = () => {
   const searchParams = useSearchParams();
