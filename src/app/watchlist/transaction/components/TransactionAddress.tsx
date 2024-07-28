@@ -1,8 +1,9 @@
 import React from "react";
-import Image from "next/image";
 import HistoryBackIcon from "@icons/HistoryBackForthIcon.svg";
 import HistoryForth from "@icons/HistoryForth.svg";
 import Link from "next/link";
+import WalletIcon from "@icons/wallet.svg";
+import Image from "next/image";
 
 type TransactionAddressProps = {
   input_address: Array<{
@@ -96,7 +97,15 @@ const TransactionAddress: React.FC<TransactionAddressProps> = ({
 }) => {
   return (
     <div>
-      <h2 className="mb-4 text-3xl font-bold text-white">Address</h2>
+      <div className="flex items-center gap-4 mb-4">
+        <h2 className="text-3xl font-bold text-white ">Address</h2>
+        <Image
+          src={WalletIcon}
+          alt="Transaction History Icon Logo"
+          width={30}
+          height={30}
+        />
+      </div>
       <div className="grid grid-cols-2 gap-6 p-4 mb-6 text-white border border-gray-600 border-solid shadow-md">
         <div className="flex flex-col gap-5">
           <h3 className="text-xl font-bold">Input Address</h3>
