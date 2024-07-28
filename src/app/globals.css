@@ -31,3 +31,18 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Add this CSS for the loader */
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border-color: #3498db transparent #3498db transparent;
+  animation: spinner 1.2s linear infinite;
+}

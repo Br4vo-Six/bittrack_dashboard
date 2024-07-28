@@ -7,9 +7,8 @@ import BitcoinLogo from "@icons/BTC Icon.png"; // Ensure the path to your Bitcoi
 import TrustedIcon from "@icons/Checklist icon.svg";
 import SuspiciousIcon from "@icons/Warning Icon.svg";
 
-const WatchList = () => {
+const WatchList = ({ params }: { params: { id: string } }) => {
   const searchParams = useSearchParams();
-  const id = searchParams.get("id");
   const time = searchParams.get("time");
   const input = searchParams.get("input");
   const output = searchParams.get("output");
@@ -27,7 +26,7 @@ const WatchList = () => {
             <div className="flex items-center">
               <Image src={ArrowIcon} alt="Arrow Icon" width={40} height={40} />
               <div className="ml-4">
-                <p className="text-xl font-bold">{id}</p>
+                <p className="text-xl font-bold">{params.id}</p>
                 <p className="text-sm">{time}</p>
               </div>
               <div className="ml-auto">
