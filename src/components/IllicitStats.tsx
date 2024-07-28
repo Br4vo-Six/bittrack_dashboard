@@ -28,15 +28,11 @@ const IllicitStats: React.FC = () => {
           <p className="text-[#C9C9C9] font-bold">
             Avg. Amount of Dirty Txs/cluster
           </p>
-          <p className="text-2xl font-bold text-red-500 text-2xll">
-            0.0042159375 BTC
-          </p>
+          <p className="text-2xl font-bold ">0.0042159375 BTC</p>
         </div>
         <div className="flex flex-col gap-1">
           <p className="text-[#C9C9C9] font-bold">Total Amount of Dirty Txs </p>
-          <p className="text-2xl font-bold text-red-500 text-2xll">
-            0.134910 BTC
-          </p>
+          <p className="text-2xl font-bold">0.134910 BTC</p>
         </div>
         <div className="flex flex-col gap-2">
           <p className="text-[#C9C9C9] font-bold">Current Accuracy</p>

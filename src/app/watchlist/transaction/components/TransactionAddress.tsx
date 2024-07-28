@@ -59,7 +59,7 @@ const TransactionAddressRow: React.FC<TransactionAddressRowProps> = ({
           >
             {formattedAddress}
           </p>
-          <p className=" text-[#FFA600] font-bold">{amount}</p>
+          <p className=" text-[#FFA600] font-bold">{amount} BTC</p>
         </div>
         <div
           className={`flex flex-col items-center p-2 border rounded-full ${
