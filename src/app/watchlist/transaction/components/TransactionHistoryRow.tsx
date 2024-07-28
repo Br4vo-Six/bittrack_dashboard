@@ -9,7 +9,7 @@ import Link from "next/link";
 type TransactionHistoryRowProps = {
   index: number;
   hash_id: string;
-  amount: string;
+  amount: number;
   trusted: boolean;
   from: boolean;
 };
@@ -47,7 +47,7 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
           >
             {formattedHashId}
           </p>
-          <p className=" text-[#FFA600] font-bold">{amount}</p>
+          <p className=" text-[#FFA600] font-bold">{amount} BTC</p>
         </div>
         <div className="flex flex-col items-center">
           <p

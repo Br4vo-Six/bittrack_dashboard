@@ -9,12 +9,12 @@ type TransactionAddressProps = {
   input_address: Array<{
     address: string;
     trust_score: number;
-    input_amount: string;
+    input_amount: number;
   }>;
   output_address: Array<{
     address: string;
     trust_score: number;
-    output_amount: string;
+    output_amount: number;
   }>;
 };
 
@@ -22,7 +22,7 @@ type TransactionAddressRowProps = {
   index: number;
   address: string;
   trust_score: number;
-  amount: string;
+  amount: number;
   input: boolean;
 };
 

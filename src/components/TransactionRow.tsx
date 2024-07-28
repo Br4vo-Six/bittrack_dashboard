@@ -10,7 +10,7 @@ type TransactionRowProps = {
   time: string;
   input: number;
   output: number;
-  amount: string;
+  amount: number;
   trusted: boolean;
 };
 
@@ -41,7 +41,7 @@ const TransactionRow: React.FC<TransactionRowProps> = ({
       <td className="py-2 text-gray-300">{formattedTime}</td>
       <td className="py-2 text-gray-300">{input}</td>
       <td className="py-2 text-gray-300">{output}</td>
-      <td className="py-2 text-[#FFA600] font-extrabold">{amount}</td>
+      <td className="py-2 text-[#FFA600] font-extrabold">{amount} BTC</td>
       <td className={`py-2 `}>
         <div className="flex items-center gap-2">
           <p

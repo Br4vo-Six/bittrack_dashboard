@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import TransactionHistoryRow from "./TransactionHistoryRow";
+import TransactionHistoryRow from "../../transaction/components/TransactionHistoryRow";
 import Image from "next/image";
 import TransactionHistoryIcon from "@icons/transactionHistoryIcon.svg";
 import TrustedIcon from "@icons/Checklist icon.svg";
@@ -10,7 +10,7 @@ import DropDownIcon from "@icons/dropdown.svg";
 import DropUpIcon from "@icons/dropup.svg";
 import HistoryIcon from "@icons/history.svg";
 
-type TransactionHistoryProps = {
+type AddressTransHistoryProps = {
   transactions: Array<{
     hash_id: string;
     totalAmount: number;
@@ -20,7 +20,7 @@ type TransactionHistoryProps = {
   }>;
 };
 
-const TransactionHistory: React.FC<TransactionHistoryProps> = ({
+const AddressTransHistory: React.FC<AddressTransHistoryProps> = ({
   transactions,
 }) => {
   return (
@@ -153,4 +153,4 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
   );
 };
 
-export default TransactionHistory;
+export default AddressTransHistory;
