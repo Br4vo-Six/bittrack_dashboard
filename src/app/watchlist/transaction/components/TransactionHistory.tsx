@@ -8,6 +8,7 @@ import TrustedIcon from "@icons/Checklist icon.svg";
 import SuspiciousIcon from "@icons/Warning Icon.svg";
 import DropDownIcon from "@icons/dropdown.svg";
 import DropUpIcon from "@icons/dropup.svg";
+import HistoryIcon from "@icons/history.svg";
 
 type TransactionHistoryProps = {
   transactions: Array<{
@@ -24,9 +25,15 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
 }) => {
   return (
     <div className="bg-[#19173D] rounded-md shadow-md">
-      <h2 className="mb-4 text-2xl font-bold text-white">
-        Transactions History
-      </h2>
+      <div className="flex items-center gap-4 mb-4">
+        <h2 className="text-3xl font-bold text-white ">Transactions History</h2>
+        <Image
+          src={HistoryIcon}
+          alt="Transaction History Icon Logo"
+          width={25}
+          height={25}
+        />
+      </div>
       {transactions.map((tx, index) => {
         const formattedHashId = `${tx.hash_id.slice(0, 4)}-${tx.hash_id.slice(
           -4
@@ -113,6 +120,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
                     {tx.from.map((fromTx, idx) => (
                       <TransactionHistoryRow
                         key={idx}
+                        index={idx + 1}
                         hash_id={fromTx.hash_id}
                         amount={fromTx.amount}
                         trusted={fromTx.trusted}
@@ -127,6 +135,7 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
                     {tx.to.map((toTx, idx) => (
                       <TransactionHistoryRow
                         key={idx}
+                        index={idx + 1}
                         hash_id={toTx.hash_id}
                         amount={toTx.amount}
                         trusted={toTx.trusted}

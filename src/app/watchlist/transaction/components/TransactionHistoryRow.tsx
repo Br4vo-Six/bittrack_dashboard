@@ -7,6 +7,7 @@ import HistoryForth from "@icons/HistoryForth.svg";
 import Link from "next/link";
 
 type TransactionHistoryRowProps = {
+  index: number;
   hash_id: string;
   amount: string;
   trusted: boolean;
@@ -14,6 +15,7 @@ type TransactionHistoryRowProps = {
 };
 
 const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
+  index,
   hash_id,
   amount,
   trusted,
@@ -29,18 +31,18 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
             <Image
               src={HistoryBackIcon}
               alt="back Icon"
-              width={30}
-              height={30}
+              width={35}
+              height={35}
             />
           </Link>
         </div>
       )}
       <div className="flex items-center w-full gap-10">
-        <p>1</p>
+        <p>{index}</p>
         <div className="flex flex-col gap-1 text-start">
           <p
             className={`font-bold ${
-              trusted ? "text-green-500" : "text-yellow-500"
+              trusted ? "text-[#61DE70]" : "text-yellow-500"
             }`}
           >
             {formattedHashId}
@@ -50,7 +52,7 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
         <div className="flex flex-col items-center">
           <p
             className={` font-bold ${
-              trusted ? "text-green-500" : "text-yellow-500"
+              trusted ? "text-[#61DE70]" : "text-yellow-500"
             }`}
           >
             {trusted ? "Trusted" : "Suspicious"}
@@ -69,8 +71,8 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
             <Image
               src={HistoryForth}
               alt="dropdown Icon"
-              width={30}
-              height={30}
+              width={35}
+              height={35}
             />
           </Link>
         </div>
