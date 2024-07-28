@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import TransactionHistoryRow from "./TransactionHistoryRow";
 import Image from "next/image";
 import TransactionHistoryIcon from "@icons/transactionHistoryIcon.svg";
 import TrustedIcon from "@icons/Checklist icon.svg";
 import SuspiciousIcon from "@icons/Warning Icon.svg";
 import DropDownIcon from "@icons/dropdown.svg";
+import DropUpIcon from "@icons/dropup.svg";
 
 type TransactionHistoryProps = {
   transactions: Array<{
@@ -28,9 +31,14 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
         const formattedHashId = `${tx.hash_id.slice(0, 4)}-${tx.hash_id.slice(
           -4
         )}`;
+        const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+        const toggleExpand = () => {
+          setIsExpanded(!isExpanded);
+        };
 
         return (
-          <div>
+          <div key={tx.hash_id}>
             <div
               key={index}
               className="flex items-center justify-between p-4 px-6 border border-gray-600 border-solid rounded-md shadow-md"
@@ -85,45 +93,50 @@ const TransactionHistory: React.FC<TransactionHistoryProps> = ({
                   height={40}
                 />
               </div>
-              <div className="my-auto cursor-pointer">
+              <div
+                className="my-auto cursor-pointer"
+                onClick={() => toggleExpand()}
+              >
                 <Image
-                  src={DropDownIcon}
+                  src={isExpanded ? DropUpIcon : DropDownIcon}
                   alt="dropdown Icon"
                   width={20}
                   height={20}
                 />
               </div>
             </div>
-            <div className="grid grid-cols-2 px-4 border border-gray-600 border-solid shadow-md p">
-              <div className="flex flex-col gap-5 p-4 border-r border-gray-600 border-solid shadow-md ">
-                <p className="text-xl font-bold">From (Transaction)</p>
-                <div className="bg-[#19173D] rounded-md  flex flex-col gap-5">
-                  {tx.from.map((fromTx, idx) => (
-                    <TransactionHistoryRow
-                      key={idx}
-                      hash_id={fromTx.hash_id}
-                      amount={fromTx.amount}
-                      trusted={fromTx.trusted}
-                      from={true}
-                    />
-                  ))}
+            {isExpanded && (
+              <div className="grid grid-cols-2 px-4 border border-gray-600 border-solid shadow-md p">
+                <div className="flex flex-col gap-5 p-4 border-r border-gray-600 border-solid shadow-md ">
+                  <p className="text-xl font-bold">From (Transaction)</p>
+                  <div className="bg-[#19173D] rounded-md  flex flex-col gap-5">
+                    {tx.from.map((fromTx, idx) => (
+                      <TransactionHistoryRow
+                        key={idx}
+                        hash_id={fromTx.hash_id}
+                        amount={fromTx.amount}
+                        trusted={fromTx.trusted}
+                        from={true}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-5 p-4">
+                  <p className="text-xl font-bold ">To (Transaction)</p>
+                  <div className="bg-[#19173D] rounded-md flex flex-col gap-5 ">
+                    {tx.to.map((toTx, idx) => (
+                      <TransactionHistoryRow
+                        key={idx}
+                        hash_id={toTx.hash_id}
+                        amount={toTx.amount}
+                        trusted={toTx.trusted}
+                        from={false}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-5 p-4">
-                <p className="text-xl font-bold ">To (Transaction)</p>
-                <div className="bg-[#19173D] rounded-md flex flex-col gap-5 ">
-                  {tx.to.map((toTx, idx) => (
-                    <TransactionHistoryRow
-                      key={idx}
-                      hash_id={toTx.hash_id}
-                      amount={toTx.amount}
-                      trusted={toTx.trusted}
-                      from={false}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
+            )}
           </div>
         );
       })}
