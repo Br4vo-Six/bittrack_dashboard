@@ -132,7 +132,7 @@ export default function RootLayout({
                 className="flex items-center p-2 text-base font-medium text-red-400 rounded-lg hover:bg-gray-700 hover:text-white"
               >
                 <Image src={LogOutIcon} alt="Log Out" width={24} height={24} />
-                <span className="ml-3">Log Out</span>
+                <span className="ml-3 text-xl font-bold">Log Out</span>
               </a>
             </div>
           </aside>

@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import ArrowIcon from "@icons/Arrow_left.svg";
 import TrustedIcon from "@icons/Checklist icon.svg";
 import SuspiciousIcon from "@icons/Warning Icon.svg";
-import HistoryBackForthIcon from "@icons/HistoryBackForthIcon.svg";
+import HistoryBackIcon from "@icons/HistoryBackForthIcon.svg";
 import HistoryForth from "@icons/HistoryForth.svg";
+import Link from "next/link";
 
 type TransactionHistoryRowProps = {
   hash_id: string;
@@ -25,12 +25,14 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
     <div className="flex items-center mb-2">
       {from && (
         <div className="mr-5 cursor-pointer">
-          <Image
-            src={HistoryBackForthIcon}
-            alt="dropdown Icon"
-            width={30}
-            height={30}
-          />
+          <Link href={`/watchlist/transaction/${hash_id}`}>
+            <Image
+              src={HistoryBackIcon}
+              alt="back Icon"
+              width={30}
+              height={30}
+            />
+          </Link>
         </div>
       )}
       <div className="flex items-center w-full gap-10">
@@ -63,12 +65,14 @@ const TransactionRow: React.FC<TransactionHistoryRowProps> = ({
       </div>
       {!from && (
         <div className="cursor-pointer ">
-          <Image
-            src={HistoryForth}
-            alt="dropdown Icon"
-            width={30}
-            height={30}
-          />
+          <Link href={`/watchlist/transaction/${hash_id}`}>
+            <Image
+              src={HistoryForth}
+              alt="dropdown Icon"
+              width={30}
+              height={30}
+            />
+          </Link>
         </div>
       )}
     </div>
