@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 import HighlightedTransactionRow from "./HighlightedTransactionRow";
+import { dummyData } from "@/app/watchlist/transaction/dummy/dummy_transactions";
 
 const HighlightedTransactions: React.FC = () => {
   const [sortBy, setSortBy] = useState("Edges");
 
-  const transactions = [
-    { hash: "8872L1344F5", numEdges: 21, totalAmount: "0.025983 BTC" },
-    { hash: "88AFK344F5", numEdges: 21, totalAmount: "0.000129 BTC" },
-    { hash: "Z210ANJ1011", numEdges: 20, totalAmount: "0.000034 BTC" },
-    { hash: "B29D3P0L00", numEdges: 18, totalAmount: "0.001811 BTC" },
-  ];
+  const transactions = dummyData.slice(0, 4).map((tx) => ({
+    hash: tx.hash_id,
+    numEdges: tx.input_address.length + tx.output_address.length,
+    totalAmount: tx.amount,
+  }));
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(event.target.value);

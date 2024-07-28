@@ -14,9 +14,10 @@ const HighlightedTransactionRow: React.FC<HighlightedTransactionRowProps> = ({
   numEdges,
   totalAmount,
 }) => {
+  const formattedHashId = `${hash.slice(0, 4)}-${hash.slice(-4)}`;
   return (
     <tr className="border-t border-gray-600">
-      <td className="py-2 text-[#FFD400]">{hash}</td>
+      <td className="py-2 text-[#FFD400] font-bold">{formattedHashId}</td>
       <td className="py-2 ">{numEdges}</td>
       <td className="py-2 text-[#FFA600]">{totalAmount}</td>
       <td className="py-2 text-right text-blue-500 cursor-pointer">

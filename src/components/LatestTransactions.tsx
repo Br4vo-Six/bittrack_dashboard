@@ -2,111 +2,9 @@ import React from "react";
 import Image from "next/image";
 import BitcoinLogo from "../../public/icons/BTC Icon.png"; // Ensure the path to your Bitcoin logo is correct
 import TransactionRow from "./TransactionRow";
+import { dummyData } from "@/app/watchlist/transaction/dummy/dummy_transactions";
 
 const LatestTransactions: React.FC = () => {
-  const transactions = [
-    {
-      id: "15253-3100",
-      time: "19:32:59",
-      input: 2,
-      output: 3,
-      amount: "0.00025148 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-    {
-      id: "ba132-44ff1",
-      time: "19:31:47",
-      input: 1,
-      output: 2,
-      amount: "0.00002394 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-    {
-      id: "bca2e-921f3",
-      time: "19:31:55",
-      input: 1,
-      output: 1,
-      amount: "0.00007248 BTC",
-      flag: "Suspicious",
-      flagColor: "text-[#FFD400]",
-      flagIcon: "⚠",
-    },
-    {
-      id: "7ec0d-e6cf3",
-      time: "19:31:46",
-      input: 3,
-      output: 2,
-      amount: "0.00017388 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-    {
-      id: "c7780-f1af4",
-      time: "19:32:50",
-      input: 1,
-      output: 2,
-      amount: "0.00043616 BTC",
-      flag: "Suspicious",
-      flagColor: "text-[#FFD400]",
-      flagIcon: "⚠",
-    },
-    {
-      id: "ee3d1-eb9f4",
-      time: "19:31:54",
-      input: 2,
-      output: 3,
-      amount: "0.14452177 BTC",
-      flag: "Suspicious",
-      flagColor: "text-[#FFD400]",
-      flagIcon: "⚠",
-    },
-    {
-      id: "88726-344f5",
-      time: "19:31:55",
-      input: 2,
-      output: 1,
-      amount: "0.00008568 BTC",
-      flag: "Suspicious",
-      flagColor: "text-[#FFD400]",
-      flagIcon: "⚠",
-    },
-    {
-      id: "d1c79-dacf5",
-      time: "19:32:00",
-      input: 2,
-      output: 3,
-      amount: "0.00817837 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-    {
-      id: "c017b-5ccf5",
-      time: "19:32:51",
-      input: 1,
-      output: 5,
-      amount: "0.00000294 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-    {
-      id: "e42cb-f5af6",
-      time: "19:31:47",
-      input: 1,
-      output: 4,
-      amount: "0.00000294 BTC",
-      flag: "Trusted",
-      flagColor: "text-[#61DE70]",
-      flagIcon: "✔",
-    },
-  ];
-
   return (
     <div className="bg-[#19173D] border border-gray-600 border-solid  p-6 rounded-md shadow-md">
       <div className="flex items-center mb-4">
@@ -127,17 +25,15 @@ const LatestTransactions: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((tx, index) => (
+          {dummyData.map((tx, index) => (
             <TransactionRow
               key={index}
-              id={tx.id}
+              hash_id={tx.hash_id}
               time={tx.time}
-              input={tx.input}
-              output={tx.output}
+              input={tx.input_address.length}
+              output={tx.output_address.length}
               amount={tx.amount}
-              flag={tx.flag}
-              flagColor={tx.flagColor}
-              flagIcon={tx.flagIcon}
+              trusted={tx.trusted}
             />
           ))}
         </tbody>
